@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33723.286
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "array-insert-shift", "array-insert-shift\array-insert-shift.csproj", "{0AF9E579-8034-4F75-A6BB-DE275FC8EFBD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestShiftArray", "TestShiftArray\TestShiftArray.csproj", "{35A4970B-E851-45F0-9F8C-C31E429EA7CB}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0AF9E579-8034-4F75-A6BB-DE275FC8EFBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0AF9E579-8034-4F75-A6BB-DE275FC8EFBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0AF9E579-8034-4F75-A6BB-DE275FC8EFBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0AF9E579-8034-4F75-A6BB-DE275FC8EFBD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{35A4970B-E851-45F0-9F8C-C31E429EA7CB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{35A4970B-E851-45F0-9F8C-C31E429EA7CB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{35A4970B-E851-45F0-9F8C-C31E429EA7CB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{35A4970B-E851-45F0-9F8C-C31E429EA7CB}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0B6A910D-54DE-4D7E-9E68-072FFDD63A2F}
+	EndGlobalSection
+EndGlobal
