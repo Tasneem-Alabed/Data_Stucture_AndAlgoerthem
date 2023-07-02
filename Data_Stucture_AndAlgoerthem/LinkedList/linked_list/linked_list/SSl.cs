@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,7 +11,7 @@ namespace linked_list
     {
         internal node head;
 
-       
+
         public void insert(int value)
         {
             node new_node = new node(value);
@@ -19,29 +19,73 @@ namespace linked_list
             head = new_node;
         }
 
-        public bool includes(int value) {
+        public bool includes(int value)
+        {
             node temp = new node(value);
             temp = this.head;
-           while(temp.next != null)
+            while (temp.next != null)
             {
-                if(temp.data == temp.next.data)
+                if (temp.data == temp.next.data)
                 {
                     return true;
                 }
 
             }
             return false;
-        
-    }
-        public void tostring () {
+
+        }
+        public void tostring()
+        {
             node temp;
             temp = this.head;
-            while (temp != null) {
-            Console.WriteLine(head.data);
+            while (temp != null)
+            {
+                Console.WriteLine(head.data);
                 temp = temp.next;
             }
         }
 
+        public void append(int value)
+        {
+            node temp;
+            temp = this.head;
+            while (temp.next != null)
+            {
+                temp = temp.next;
+                if (temp.next.next == null)
+                {
+                    node new_node = new node(value);
+                    temp.next = new_node;
 
+                }
+
+
+            }
+
+
+        }
+
+        public void insert_after(int  value,int number) {
+            node temp = new node(value);
+            
+            node pointer;
+            pointer = this.head;
+            temp = this.head;
+            while (temp.next != null)
+            {
+                if (temp.data == temp.next.data)
+                {
+                   while(pointer.next != temp)
+                    {
+                        pointer = pointer.next;
+                        if(pointer.next.next == temp)
+                        {
+                            node input = new node(number);
+                            pointer.next = input;
+                            input.next = temp;
+                        }
+                    }
+                }
+            }
     }
 }
