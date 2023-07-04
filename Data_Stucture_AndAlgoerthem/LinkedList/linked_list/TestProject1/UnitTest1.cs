@@ -95,6 +95,110 @@ namespace TestProject1
            
 
         }
+        [Fact]
+        public void append()
+        {
+
+            SLL s = new SLL();
+            s.insert(99);
+            s.insert(3);
+            s.insert(10);
+            s.append(11);
+
+            Assert.Equal(11, s.tail.Data);
+
+        }
+        [Fact]
+        public void append2()
+        {
+
+            SLL s = new SLL();
+            s.insert(99);
+            s.insert(3);
+            s.insert(10);
+            s.append(11);
+            s.append(15);
+            Assert.Equal(15, s.tail.Data);
+
+        }
+
+        [Fact]
+        public void insert_before()
+        {
+
+            SLL s = new SLL();
+            
+            s.insert(2);
+            s.insert(3);
+            s.insert_before(2,66);
+
+            Assert.Equal(66, s.head.Next.Data);
+
+        }
+        [Fact]
+        public void insert_before2()
+        {
+
+            SLL s = new SLL();
+
+            s.insert(2);
+           
+            s.insert_before(2, 66);
+
+            Assert.Equal(66, s.head.Data);
+
+        }
+        [Fact]
+        public void insert_before3()
+        {
+
+            SLL s = new SLL();
+
+            s.insert(2);
+
+            s.insert_before(2, 66);
+            s.insert_before(66, 9);
+            Assert.Equal(9, s.head.Data);
+
+        }
+        [Fact]
+        public void Initial_List()
+        {
+
+            SLL s = new SLL();
+
+            s.insert(2);
+
+            s.Initial_List(2, 9);
+            Assert.Equal(9, s.head.Next.Data);
+
+        }
+        [Fact]
+        public void Initial_List2()
+        {
+
+            SLL s = new SLL();
+
+            s.insert(2);
+            s.insert(5);
+            s.insert(12);
+            s.Initial_List(5, 9);
+            Assert.Equal(9, s.head.Next.Next.Data);
+
+        }
+        [Fact]
+        public void Initial_List3()
+        {
+
+            SLL s = new SLL();
+
+            s.insert(2);
+            s.insert(5);
+            s.insert(12);
+            s.Initial_List(2, 9);
+            Assert.Equal(9, s.head.Next.Next.Next.Data);
+
+        }
 
 
     }

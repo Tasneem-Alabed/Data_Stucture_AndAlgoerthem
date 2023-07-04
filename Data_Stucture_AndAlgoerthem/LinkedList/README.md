@@ -10,3 +10,9 @@
 - print the list
 - search in the lest and if the value add in the list return true else return false
 -
+
+## The second version of the linked list
+- add method to add in the end of the list
+- add method to add after specific value
+- add method to add befor specific value
+
