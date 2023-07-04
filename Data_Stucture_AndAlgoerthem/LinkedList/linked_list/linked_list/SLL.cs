@@ -18,7 +18,7 @@ namespace linked_list
         }
         public Node()
         {
-          
+
             Next = null;
         }
     }
@@ -48,13 +48,13 @@ namespace linked_list
         }
         public String Print()
         {
-            String a="";
+            String a = "";
             Node temp;
             temp = head;
             while (temp != null)
             {
-                a += "{" + $"{temp.Data}"+"}"+"=>";
-                
+                a += "{" + $"{temp.Data}" + "}" + "=>";
+
                 temp = temp.Next;
             }
 
@@ -84,20 +84,20 @@ namespace linked_list
             pointer = head;
             while (pointer.Next != null)
             {
-              if(pointer.Next.Next == null)
+                if (pointer.Next.Next == null)
                 {
 
                     pointer.Next = node;
                     tail = node;
 
                 }
-              pointer = pointer.Next;
+                pointer = pointer.Next;
             }
         }
         public void insert_before(int value, int newValue)
         {
             Node node = new Node(newValue);
-            Node pointer ;
+            Node pointer;
             pointer = head;
             while (pointer != null)
             {
@@ -107,16 +107,16 @@ namespace linked_list
                     {
                         node.Next = pointer;
                         head = node;
-                       
-                        
+
+
                     }
                     else
                     {
-                        Node pointer2 ;
+                        Node pointer2;
                         pointer2 = head;
-                        while(pointer2.Next.Next != pointer)
+                        while (pointer2.Next.Next != pointer)
                         {
-                            if(pointer2.Next== pointer)
+                            if (pointer2.Next == pointer)
                             {
                                 node.Next = pointer;
                                 pointer2.Next = node;
@@ -124,17 +124,18 @@ namespace linked_list
                         }
                     }
                     break;
-                    
+
                 }
                 pointer = pointer.Next;
 
-                 
-                
+
+
             }
             Console.WriteLine("No change, method exception");
         }
 
-        public void Initial_List(int value, int newValue) {
+        public void Initial_List(int value, int newValue)
+        {
             Node node = new Node(newValue);
             Node pointer;
             pointer = head;
@@ -150,7 +151,56 @@ namespace linked_list
             }
             Console.WriteLine("No change, method exception");
         }
-    }
-    
 
+        public int kthFromEnd(int k)
+        {
+            int counter = 0;
+            Node node;
+            node = head;
+            while (node != null)
+            {
+                counter++;
+                node = node.Next;
+                if (head== tail && k==0)
+                {
+                    return head.Data;
+                }
+                if (node.Next == null)
+                {
+                  
+                    if(counter+1 == k)
+                    {
+                        return head.Data;
+                    }
+                    if (k < counter && k >= 0) {
+                        
+                        Node value;
+                    value = head;
+                    int leght = counter - k+1;
+                        for (int i = 1; i < leght; i++)
+                        {
+                           
+                            value = value.Next;
+                            if (i == leght-1)
+                            {
+                                return value.Data;
+                            }
+
+                        }
+                    }
+                    break;
+                }
+
+
+
+            
+
+
+            }
+            return 0;
+        }
+
+
+    }
 }
+

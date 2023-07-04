@@ -16,3 +16,5 @@
 - add method to add after specific value
 - add method to add befor specific value
 
+## thered version of linked list
+- add algorethem to select index or location for node and start from the end to find it and return it 

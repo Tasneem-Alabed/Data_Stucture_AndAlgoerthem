@@ -199,6 +199,84 @@ namespace TestProject1
             Assert.Equal(9, s.head.Next.Next.Next.Data);
 
         }
+        [Fact]
+        public void kthFromEnd()
+        {
+
+            SLL s = new SLL();
+
+            s.insert(2);
+            s.insert(5);
+            s.insert(12);
+
+            Assert.Equal(2, s.kthFromEnd(0)) ;
+
+        }
+        [Fact]
+        public void kthFromEnd1()
+        {
+
+            SLL s = new SLL();
+
+            s.insert(2);
+            s.insert(5);
+            s.insert(12);
+
+            Assert.Equal(5, s.kthFromEnd(1));
+
+        }
+        [Fact]
+        public void kthFromEnd2()
+        {
+
+            SLL s = new SLL();
+
+            s.insert(2);
+            s.insert(5);
+            s.insert(12);
+
+            Assert.Equal(0, s.kthFromEnd(5));
+
+        }
+        [Fact]
+        public void kthFromEnd3()
+        {
+
+            SLL s = new SLL();
+
+            s.insert(2);
+            s.insert(5);
+            s.insert(12);
+
+            Assert.Equal(12, s.kthFromEnd(3));
+
+        }
+        [Fact]
+        public void kthFromEnd4()
+        {
+
+            SLL s = new SLL();
+
+            s.insert(2);
+            s.insert(5);
+            s.insert(12);
+
+            Assert.Equal(0, s.kthFromEnd(-3));
+
+        }
+
+        [Fact]
+        public void kthFromEnd5()
+        {
+
+            SLL s = new SLL();
+
+            s.insert(2);
+           
+
+            Assert.Equal(2, s.kthFromEnd(0));
+
+        }
 
 
     }
