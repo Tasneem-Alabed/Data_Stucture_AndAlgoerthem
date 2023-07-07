@@ -1,4 +1,4 @@
-﻿namespace linked_list_insertions
+﻿namespace Linked_List
 {
     internal class Program
     {
