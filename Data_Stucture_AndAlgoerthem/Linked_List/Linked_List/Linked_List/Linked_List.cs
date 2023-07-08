@@ -78,6 +78,82 @@ namespace linked_List
 
         }
 
+        public void append(int value)
+        {
+            Node node = new Node(value);
+            Node pointer = new Node();
+            pointer = head;
+            while (pointer.Next != null)
+            {
+                if (pointer.Next.Next == null)
+                {
+
+                    pointer.Next = node;
+                    tail = node;
+
+                }
+                pointer = pointer.Next;
+            }
+        }
+        public void insert_before(int value, int newValue)
+        {
+            Node node = new Node(newValue);
+            Node pointer;
+            pointer = head;
+            while (pointer != null)
+            {
+                if (pointer.Data == value)
+                {
+                    if (pointer == head)
+                    {
+                        node.Next = pointer;
+                        head = node;
+
+
+                    }
+                    else
+                    {
+                        Node pointer2;
+                        pointer2 = head;
+                        while (pointer2.Next.Next != pointer)
+                        {
+                            if (pointer2.Next == pointer)
+                            {
+                                node.Next = pointer;
+                                pointer2.Next = node;
+                            }
+                        }
+                    }
+                    break;
+
+                }
+                pointer = pointer.Next;
+
+
+
+            }
+            Console.WriteLine("No change, method exception");
+        }
+
+        public void Initial_List(int value, int newValue)
+        {
+            Node node = new Node(newValue);
+            Node pointer;
+            pointer = head;
+            while (pointer != null)
+            {
+                if (pointer.Data == value)
+                {
+                    node.Next = pointer.Next;
+                    pointer.Next = node;
+                    break;
+                }
+                pointer = pointer.Next;
+            }
+            Console.WriteLine("No change, method exception");
+        }
+
+       
 
     }
 }

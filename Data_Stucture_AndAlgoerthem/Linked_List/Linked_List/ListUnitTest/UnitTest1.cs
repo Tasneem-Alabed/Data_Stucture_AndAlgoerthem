@@ -94,5 +94,66 @@ namespace TestProject1
 
 
         }
+        [Fact]
+        public void test8()
+        {
+
+            s.insert(99);
+            s.insert(3);
+            s.insert(10);
+            s.append(5);
+            Assert.Equal(5, s.tail.Data);
+          
+        }
+        [Fact]
+        public void test9()
+        {
+
+            s.insert(99);
+            s.insert(3);
+            s.insert(10);
+            s.append(5);
+            s.append(51);
+            Assert.Equal(51, s.tail.Data);
+
+        }
+        [Fact]
+        public void test10()
+        {
+
+            s.insert(99);
+            s.insert(3);
+            s.insert(10);
+            
+            s.insert_before(10, 77);
+            Assert.Equal(77, s.head.Data);
+
+        }
+        [Fact]
+        public void test11()
+        {
+
+            s.insert(99);
+            s.insert(3);
+            s.insert(10);
+
+            s.insert_before(10, 77);
+            Assert.Equal(77, s.head.Data);
+
+        }
+        public void test12()
+        {
+
+            s.insert(99);
+            s.insert(3);
+            s.insert(10);
+
+            s.Initial_List(99, 77);
+            Assert.Equal(77, s.tail.Next.Data);
+
+        }
+
+
+
     }
 }
