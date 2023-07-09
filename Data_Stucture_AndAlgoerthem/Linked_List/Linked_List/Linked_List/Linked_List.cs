@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
@@ -235,14 +235,14 @@ namespace linked_List
                       
                         z.append(pointer1.Data);
                         pointer1 = pointer1.Next;
-                        break;
+                      
 
                     }
                     if (list2 != null)
                     {
                         z.append(pointer2.Data);
                         pointer2 = pointer2.Next;
-                        break;
+                       
                     }
 
                 }
