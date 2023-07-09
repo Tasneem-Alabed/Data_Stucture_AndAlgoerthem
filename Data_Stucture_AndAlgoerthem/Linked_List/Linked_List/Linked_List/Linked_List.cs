@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
 using System.Linq;
@@ -153,7 +153,66 @@ namespace linked_List
             Console.WriteLine("No change, method exception");
         }
 
-       
+        public int kthFromEnd(int k)
+        {
+            try
+            {
+                int counter = 0;
+                Node node;
+                node = head;
+                while (node != null)
+                {
+                    counter++;
+                    node = node.Next;
+                    if (head == tail && k == 0)
+                    {
+                        return head.Data;
+                    }
+                    if (node.Next == null)
+                    {
+
+                        if (counter  == k)
+                        {
+                            return head.Data;
+                        }
+                        if (k < counter && k >= 0)
+                        {
+
+                            Node value;
+                            value = head;
+                            int leght = counter - k + 1;
+                            for (int i = 1; i < leght; i++)
+                            {
+
+                                value = value.Next;
+                                if (i == leght - 1)
+                                {
+                                    return value.Data;
+                                }
+
+                            }
+                        }
+                        break;
+                    }
+
+
+
+
+                }
+
+            }
+
+
+            catch (IndexOutOfRangeException e)
+            {
+                throw new IndexOutOfRangeException();
+
+
+            }
+
+            throw new IndexOutOfRangeException();
+        }
+
 
     }
 }

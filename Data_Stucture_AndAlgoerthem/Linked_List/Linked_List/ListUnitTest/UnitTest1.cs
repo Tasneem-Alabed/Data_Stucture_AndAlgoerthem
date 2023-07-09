@@ -141,6 +141,7 @@ namespace TestProject1
             Assert.Equal(77, s.head.Data);
 
         }
+        [Fact]
         public void test12()
         {
 
@@ -152,8 +153,66 @@ namespace TestProject1
             Assert.Equal(77, s.tail.Next.Data);
 
         }
+        [Fact]
+        public void test13()
+        {
+
+            s.insert(99);
+            s.insert(3);
+            s.insert(10);
+
+          
+            Assert.Throws<IndexOutOfRangeException>(() => s.kthFromEnd(-1));
+
+        }
+    
+    [Fact]
+    public void test14()
+    {
+
+        s.insert(99);
+        s.insert(3);
+        s.insert(10);
 
 
+        Assert.Throws<IndexOutOfRangeException>(() => s.kthFromEnd(51));
 
+    }
+        [Fact]
+        public void test15()
+        {
+
+            s.insert(99);
+            s.insert(3);
+            s.insert(10);
+
+
+            Assert.Equal(3, s.kthFromEnd(1));
+
+        }
+        [Fact]
+        public void test16()
+        {
+
+            s.insert(99);
+            s.insert(3);
+            s.insert(10);
+
+
+            Assert.Equal(99, s.kthFromEnd(0));
+
+        }
+        [Fact]
+        public void test17()
+        {
+
+            s.insert(99);
+            s.insert(3);
+            s.insert(10);
+
+
+            Assert.Equal(10, s.kthFromEnd(2));
+
+        }
     }
 }
