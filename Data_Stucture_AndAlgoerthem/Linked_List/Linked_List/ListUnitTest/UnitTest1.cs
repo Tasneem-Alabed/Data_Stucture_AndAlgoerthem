@@ -7,6 +7,9 @@ namespace TestProject1
     public class UnitTest1
     {
         LinkedList s = new LinkedList();
+        LinkedList b = new LinkedList();
+        LinkedList test = new LinkedList();
+
         [Fact]
         public void test1()
         {
@@ -141,6 +144,7 @@ namespace TestProject1
             Assert.Equal(77, s.head.Data);
 
         }
+        [Fact]
         public void test12()
         {
 
@@ -152,8 +156,94 @@ namespace TestProject1
             Assert.Equal(77, s.tail.Next.Data);
 
         }
+        [Fact]
+        public void test13()
+        {
+
+            s.insert(99);
+            s.insert(3);
+            s.insert(10);
+
+          
+            Assert.Throws<IndexOutOfRangeException>(() => s.kthFromEnd(-1));
+
+        }
+    
+    [Fact]
+    public void test14()
+    {
+
+        s.insert(99);
+        s.insert(3);
+        s.insert(10);
 
 
+        Assert.Throws<IndexOutOfRangeException>(() => s.kthFromEnd(51));
+
+    }
+        [Fact]
+        public void test15()
+        {
+
+            s.insert(99);
+            s.insert(3);
+            s.insert(10);
+
+
+            Assert.Equal(3, s.kthFromEnd(1));
+
+        }
+        [Fact]
+        public void test16()
+        {
+
+            s.insert(99);
+            s.insert(3);
+            s.insert(10);
+
+
+            Assert.Equal(99, s.kthFromEnd(0));
+
+        }
+        [Fact]
+        public void test17()
+        {
+
+            s.insert(99);
+            s.insert(3);
+            s.insert(10);
+
+
+            Assert.Equal(10, s.kthFromEnd(2));
+
+        }
+        [Fact]
+        public void zipLists()
+        {
+            LinkedList s = new LinkedList();
+            LinkedList b = new LinkedList();
+            LinkedList test = new LinkedList();
+
+            s.insert(99);
+            s.insert(3);
+            s.insert(10);
+
+            b.insert(11);
+            b.insert(77);
+            b.insert(8);
+
+            test.insert(10);
+            test.insert(8);
+            test.insert(3);
+            test.insert(77);
+            test.insert(99);
+            test.insert(11);
+
+            
+            Assert.Equal(test, s.zipLists(s,b));
+
+        }
+      
 
     }
 }

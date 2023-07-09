@@ -1,4 +1,5 @@
-﻿using System;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.Design;
 using System.Linq;
@@ -83,12 +84,16 @@ namespace linked_List
             Node node = new Node(value);
             Node pointer = new Node();
             pointer = head;
-            while (pointer.Next != null)
+            if(head == null)
             {
-                if (pointer.Next.Next == null)
+                head = tail = node;
+            }
+            while (pointer != null)
+            {
+                if (pointer.Next == null)
                 {
 
-                    pointer.Next = node;
+                    pointer = node;
                     tail = node;
 
                 }
@@ -153,7 +158,102 @@ namespace linked_List
             Console.WriteLine("No change, method exception");
         }
 
-       
+        public int kthFromEnd(int k)
+        {
+            try
+            {
+                int counter = 0;
+                Node node;
+                node = head;
+                while (node != null)
+                {
+                    counter++;
+                    node = node.Next;
+                    if (head == tail && k == 0)
+                    {
+                        return head.Data;
+                    }
+                    if (node.Next == null)
+                    {
+
+                        if (counter  == k)
+                        {
+                            return head.Data;
+                        }
+                        if (k < counter && k >= 0)
+                        {
+
+                            Node value;
+                            value = head;
+                            int leght = counter - k + 1;
+                            for (int i = 1; i < leght; i++)
+                            {
+
+                                value = value.Next;
+                                if (i == leght - 1)
+                                {
+                                    return value.Data;
+                                }
+
+                            }
+                        }
+                        break;
+                    }
+
+
+
+
+                }
+
+            }
+
+
+            catch (IndexOutOfRangeException e)
+            {
+                throw new IndexOutOfRangeException();
+
+
+            }
+
+            throw new IndexOutOfRangeException();
+        }
+        public LinkedList zipLists(LinkedList list1 , LinkedList list2) {
+            LinkedList z = new LinkedList();
+            try
+            {
+                
+                Node pointer1 = new Node();
+                pointer1 =list1.head;
+                Node pointer2 = new Node();
+                pointer2 = list2.head;
+               
+                while (pointer1 != null || pointer2 != null)
+                {
+                  
+                    if (list1 != null)
+                    {
+                      
+                        z.append(pointer1.Data);
+                        pointer1 = pointer1.Next;
+                      
+
+                    }
+                    if (list2 != null)
+                    {
+                        z.append(pointer2.Data);
+                        pointer2 = pointer2.Next;
+                       
+                    }
+
+                }
+
+                return z;
+            }
+            catch(IndexOutOfRangeException e)
+            {
+                throw e;
+            }
+        }
 
     }
 }

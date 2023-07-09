@@ -16,11 +16,14 @@ function :
 
 6- Add At the end of the list
 
+7- Search fron the end about value by its order in list
 <br>
 
 
 ![img](img1.jpg)
 ![img](img2.jpg)
-this code written by C# language to start it just r=create an object from class 
+![ing](img3.jpg)
+
+this code written by C# language to start it just create an object from class 
 Linked list and then can access any other method thet create on it.
 
