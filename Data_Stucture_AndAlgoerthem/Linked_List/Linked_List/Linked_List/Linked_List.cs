@@ -255,6 +255,26 @@ namespace linked_List
             }
         }
 
+        public LinkedList ReversList(LinkedList s) { 
+            
+          Node Current = null;
+            Node next = s.head;
+            Node Prev = null;
+
+            while(Current != null)
+            {
+                next = Current.Next;
+                Current.Next = Prev;
+                Prev = Current;
+                Current = next;
+
+            }
+
+            head = Prev;
+            return s; 
+        }
+
+
     }
 }
 

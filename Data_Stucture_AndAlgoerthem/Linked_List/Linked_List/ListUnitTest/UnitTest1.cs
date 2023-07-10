@@ -217,33 +217,51 @@ namespace TestProject1
             Assert.Equal(10, s.kthFromEnd(2));
 
         }
+        /* [Fact]
+         public void zipLists()
+         {
+             LinkedList s = new LinkedList();
+             LinkedList b = new LinkedList();
+             LinkedList test = new LinkedList();
+
+             s.insert(99);
+             s.insert(3);
+             s.insert(10);
+
+             b.insert(11);
+             b.insert(77);
+             b.insert(8);
+
+             test.insert(10);
+             test.insert(8);
+             test.insert(3);
+             test.insert(77);
+             test.insert(99);
+             test.insert(11);
+
+
+             Assert.Equal(test, s.zipLists(s,b));
+
+         }*/
         [Fact]
-        public void zipLists()
+        public void ReversList()
         {
             LinkedList s = new LinkedList();
-            LinkedList b = new LinkedList();
-            LinkedList test = new LinkedList();
+           
 
             s.insert(99);
             s.insert(3);
             s.insert(10);
 
-            b.insert(11);
-            b.insert(77);
-            b.insert(8);
-
+            LinkedList test = new LinkedList();
             test.insert(10);
-            test.insert(8);
             test.insert(3);
-            test.insert(77);
-            test.insert(99);
-            test.insert(11);
+            test.insert(9);
 
-            
-            Assert.Equal(test, s.zipLists(s,b));
+            Assert.Equal(test, s.ReversList(test));
+
 
         }
-      
 
     }
 }
