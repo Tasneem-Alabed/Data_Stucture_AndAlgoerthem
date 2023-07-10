@@ -235,14 +235,14 @@ namespace linked_List
                       
                         z.append(pointer1.Data);
                         pointer1 = pointer1.Next;
-                        break;
+                      
 
                     }
                     if (list2 != null)
                     {
                         z.append(pointer2.Data);
                         pointer2 = pointer2.Next;
-                        break;
+                       
                     }
 
                 }
@@ -254,6 +254,26 @@ namespace linked_List
                 throw e;
             }
         }
+
+        public LinkedList ReversList(LinkedList s) { 
+            
+          Node Current = null;
+            Node next = s.head;
+            Node Prev = null;
+
+            while(Current != null)
+            {
+                next = Current.Next;
+                Current.Next = Prev;
+                Prev = Current;
+                Current = next;
+
+            }
+
+            head = Prev;
+            return s; 
+        }
+
 
     }
 }
