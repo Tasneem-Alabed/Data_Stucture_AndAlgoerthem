@@ -1,0 +1,14 @@
+﻿using linked_List;
+
+namespace ConsoleApp1
+
+{
+    public class Program
+    {
+        static void Main(string[] args)
+        {
+           
+                
+        }
+    }
+}
