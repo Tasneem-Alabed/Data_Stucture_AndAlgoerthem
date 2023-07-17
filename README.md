@@ -10,3 +10,5 @@
 - Stack and Queu : [Link](Data_Stucture_AndAlgoerthem\Stack&Queu\Stack&Queu\README.md)
 
 - linked List zip : [link](Data_Stucture_AndAlgoerthem\linked-list-zip\ConsoleApp1\README.md)
+
+- stack queue pseudo : [link](Data_Stucture_AndAlgoerthem\stack-queue-pseudo\stack-queue-pseudo\README.md)
