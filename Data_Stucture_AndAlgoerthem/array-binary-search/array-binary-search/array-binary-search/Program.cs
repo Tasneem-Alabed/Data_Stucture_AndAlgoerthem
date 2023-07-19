@@ -4,36 +4,38 @@
     {
         static void Main(string[] args)
         {
-            int[] array = { 2, 5, 8, 12, 16, 23, 38, 56, 72, 91 };
-            int target = 23;
 
-                int left = 0;
-                int right = array.Length - 1;
 
-                while (left <= right)
+        }
+        public static int binarySeacrh(int[] arr , int value) {
+            int min = 0;
+            int max = arr.Length-1;
+
+            while(min <= max)
+            {
+                int mid = (min+max)/2;
+                if (value == arr[mid])
                 {
-                int mid = left + (right - left) / 2;
-                if (array[mid] == target)
-                {
-                    return mid; 
+                    return mid;
                 }
-                else if (array[mid] < target)
+                else if(value < arr[mid])
                 {
-                    left = mid + 1; 
+                    max= mid-1;
                 }
-                else
+                else if(value > arr[mid])
                 {
-                    right = mid - 1;
+                    min= mid+1;
                 }
+
             }
-
-            return "not found"; 
+            return - 1;
         }
 
     }
-        }
 
-       
+    
+    
+        
+    
 
-    }
 }
