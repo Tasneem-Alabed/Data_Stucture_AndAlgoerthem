@@ -6,196 +6,112 @@ namespace stack_queue_pseudo
     {
         static void Main(string[] args)
         {
-            pseudo_queue s = new pseudo_queue();
-            s.push(5);
-            s.push(6);
-            s.push(7);
-
+          
            
-
-
-            Console.WriteLine("__________________________");
-            Console.WriteLine("__________________________");
-            Console.WriteLine("__________________________");
-
-            
-            
-            s.enque(s.pop());
-            s.enque(s.pop());
-            s.enque(s.pop());
-
-
-
-
-            Console.WriteLine(s.dequeue());
-            Console.WriteLine(s.dequeue());
-            Console.WriteLine(s.dequeue());
-
-
-
-
 
         }
     }
 
-    public class node
+    public class Node
     {
         public int id;
-        public node next;
-        public node(int id)
+        public Node next;
+        public Node(int id)
         {
             this.id = id;
            next = null;
         }
-        public node()
+        public Node()
         { 
         
         }
 
     }
-    public class linked_list
+  
+   public class Stack
     {
-       public node head;
-      public  node tail;
 
-        public linked_list()
+        Node tail;
+
+        public Stack()
         {
-            head = null;
             tail = null;
         }
 
-        public bool IsEmpty() {
-            if (head == null)
+        public bool IsEmpty()
+        {
+            if (tail == null)
+            {
                 return true;
+            }
             else
                 return false;
-        
         }
-
-        public void add(int id) { 
-
-        node node = new node(id);
-            if (IsEmpty())
-            {
-                head = tail =node;
-                
-            }
-            else
-            {
-                tail.next = node;
-                tail = node;
-            }
-        }
-
-        public void print()
+        public void push(int value)
         {
-            node current = head;
-            while(current != null)
-            {
-                Console.WriteLine(current.id);
+            Node n = new Node(value);
+            n.next = tail;
+            tail = n;
 
-                current = current.next;
-            }
-        }
-    }
-    public class pseudo_queue
-    {
-        public linked_list s = new linked_list();
-        public linked_list q = new linked_list();
-
-        public void push(int id)
-        {
-            s.add(id);
-           
         }
 
         public int pop()
         {
-            if (s.IsEmpty())
+            if (IsEmpty())
             {
-                throw new Exception();
+                throw new InvalidOperationException();
             }
-            node pointer = s.head;
-          
-
-            try
-            {
-                while (pointer != s.tail)
-                {
-                    if (pointer.next == s.tail)
-                    {
-                        int number = s.tail.id;
-                        s.tail = pointer;
-                        s.tail.next = null;
-                       
-                        return number;
-                       
-                    }
-                    pointer = pointer.next;
-                }
-                int a = s.tail.id;
-                s.tail = null;
-                return a;
-              
-
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
+            int number = tail.id;
+            tail=tail.next;
+            return number;
         }
 
-
-        public int peek()
+        public int Peek()
         {
-            if (s.IsEmpty())
+            if (IsEmpty())
             {
-                throw new Exception();
+                throw new InvalidOperationException();
             }
-            else 
-                return s.tail.id;
-        }
-        public void enque(int value)
-        {
-            q.add(value);
-        }
+            return tail.id;
 
-        public int dequeue()
-        {
-            if (q.IsEmpty())
-            {
-                throw new Exception();
-            }
-            node pointer = q.head;
-
-
-            try
-            {
-                while (pointer != q.tail)
-                {
-                    if (pointer.next == q.tail)
-                    {
-                        int number = q.tail.id;
-                        q.tail = pointer;
-                        q.tail.next = null;
-
-                        return number;
-
-                    }
-                    pointer = pointer.next;
-                }
-                int a = q.tail.id;
-                q.tail = null;
-                return a;
-
-
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
         }
 
 
     }
+
+    public class Queue
+    {
+      public Stack stack1;
+        public Stack stack2;
+        public Queue() {
+        
+        stack1 = new Stack();
+        stack2 = new Stack();
+        }
+        public void Enqueue(int value)
+        {
+            while (! stack2.IsEmpty())
+            {
+                stack1.push(stack2.pop());
+            }
+
+            stack1.push(value);
+        }
+
+        public int Dequeue()
+        {
+            while (!stack1.IsEmpty())
+            {
+                stack2.push(stack1.pop());
+            }
+
+            return stack2.pop();
+        }
+
+      
+    }
+
+   
 }
+
+    
