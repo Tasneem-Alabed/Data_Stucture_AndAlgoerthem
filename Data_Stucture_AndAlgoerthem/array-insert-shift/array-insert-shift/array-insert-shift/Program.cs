@@ -15,32 +15,21 @@
             if (arr==null){return null;}
                else if (arr.Length == 0){arr1[0] = value;
                 return arr1;}
-            else if (arr.Length == 1|| arr.Length ==3)
-            {for (int i = 0; i < arr.Length; i++)
-                {arr1[i] = arr[i];}
-               arr1[arr.Length] = value;
-                return arr1;}
-            else if (arr.Length % 2 == 0 )
-            {int number = arr.Length / 2;
-                int cout = 0;
-                for (int i = 0; i < arr1.Length; i++ )
-                {if (i == number)
-                 {arr1[i] = value;}
-                 else{
-                        arr1[i] = arr[cout];
-                        cout++;}}
-                return arr1;}
-            else if (arr.Length % 2 != 0)
-            {int number = (arr.Length-1 / 2)+2;
-                int counter = 0;
-                for (int i = 0; i < arr1.Length; i++)
-                { if (i == number){
-                        arr1[i] = value;}
-                    else{
-                        arr1[i] = arr[counter];
-                        counter++;
-                    }}
-                return arr1;}
+            int number = (arr.Length - 1)/2;
+            for(int x = 0 , y = 0; x < arr1.Length; x++)
+            {
+                if (number+1 == x)
+                {
+                    arr1[x] = value;
+                    
+                }
+                else
+                {
+                    arr1[x] = arr[y];
+                    y++;
+                }
+            }
+            
               return arr1;}
 }
     }
