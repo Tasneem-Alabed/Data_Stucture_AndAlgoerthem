@@ -7,7 +7,7 @@ write queue data structure using stack
 
 
 ## steps :
-- create list
+- create stack
 - put value in stack using push 
 - pop the value from stack and push them in other seack
 - pop them again 
@@ -15,4 +15,4 @@ write queue data structure using stack
 
 white boord 
 
-![](img.jpg)
+![](img1.jpg)
