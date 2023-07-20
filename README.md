@@ -13,5 +13,5 @@
 
 - stack queue pseudo : [link](Data_Stucture_AndAlgoerthem/Data_Stucture_AndAlgoerthem/stack-queue-pseudo/stack-queue-pseudo/README.md)
 
-- Animal shelt using queue : [link](Data_Stucture_AndAlgoerthem/Data_Stucture_AndAlgoerthem\stack-queue-animal-shelter\ConsoleApp1\README.md)
+- Animal shelt using queue : [link](Data_Stucture_AndAlgoerthem/stack-queue-animal-shelter/ConsoleApp1/README.md)
   
