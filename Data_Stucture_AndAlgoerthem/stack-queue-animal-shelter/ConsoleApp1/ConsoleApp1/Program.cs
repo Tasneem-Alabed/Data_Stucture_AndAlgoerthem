@@ -49,86 +49,80 @@ namespace ConsoleApp1
         }
     
     }
-   
-      public class Stack
+        
+   public class AnimalShelter
     {
-       public Node tail;
-        public Stack()
+       public  Node head;
+        public Node tail;
+        public AnimalShelter()
         {
+            head = null;
             tail = null;
         }
         public bool IsEmpty()
         {
-            if (tail == null)
-            
-                {
-                    return true;
-                }
-            else
-                    return false;
-            }
-
-
-            public void push(Animal animal)
-            {
-                Node n = new Node(animal);
-                n.next = tail;
-                tail = n;
-
-            }
-
-            public Animal pop()
-            {
-                if (IsEmpty())
-                {
-                    throw new InvalidOperationException();
-                }
-                Animal number = tail.animal;
-                tail = tail.next;
-                return number;
-            }
-
-           
-        }
-    public class AnimalShelter
-    {
-        public Stack stack1;
-        public Stack stack2;
-        public AnimalShelter()
-        {
-
-            stack1 = new Stack();
-            stack2 = new Stack();
+            if(head == null)
+                return true;
+            else return false;
         }
         public void Enqueue(Animal animal)
         {
-            while (!stack2.IsEmpty())
+            Node node = new Node(animal);
+            if (IsEmpty())
             {
-                stack1.push(stack2.pop());
+                head = node;
+                tail = node;
+               
             }
-            stack1.push(animal);
+            tail.next= node;
+            tail = node;
         }
         public Animal Dequeue(string pref)
         {
-            while (!stack1.IsEmpty())
-            {
-                stack2.push(stack1.pop());
-            }
-
-            while (!stack2.IsEmpty())
-            {
-                var animal = stack2.pop();
-                if (animal.species == pref)
+          
+                if (pref == "cat" || pref == "dog")
                 {
-                    return animal;
+                    Node n = head;
+                    Node prev = null;
+
+                   
+                    while (n != null && n.animal.species != pref)
+                    {
+                        prev = n;
+                        n = n.next;
+                    }
+
+                  
+                    if (n != null)
+                    {
+                      
+                        if (n == head)
+                        {
+                            head = n.next;
+                        }
+                    
+                        if (n == tail)
+                        {
+                            tail = prev;
+                        }
+                      
+                        if (prev != null)
+                        {
+                            prev.next = n.next;
+                        }
+
+                        n.next = null; 
+
+                        return n.animal;
+                    }
                 }
-                stack1.push(animal);
+
+                return null;
             }
 
-            return null;
         }
     }
 
 
 
-    }
+    
