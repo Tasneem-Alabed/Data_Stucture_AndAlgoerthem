@@ -4,7 +4,7 @@
 <hr>
 
 - Binary search Array: [link](Data_Stucture_AndAlgoerthem/array-binary-search/README.md)
-- Array insert Shift : [Link](Data_Stucture_AndAlgoerthem\array-insert-shift\Readme.md) 
+- Array insert Shift : [Link](Data_Stucture_AndAlgoerthem/array-insert-shift/README.md) 
 - Revers Array : [link](Data_Stucture_AndAlgoerthem/Revers-an-Array/README.md)
 - Linked List : [link ](Data_Stucture_AndAlgoerthem/Linked_List/Linked_List/README.md)
 - Stack and Queu : [Link](Data_Stucture_AndAlgoerthem/Stack&Queu/Stack&Queu/README.md)
