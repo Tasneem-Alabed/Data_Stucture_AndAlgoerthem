@@ -16,4 +16,6 @@
 - Animal shelt using queue : [link](Data_Stucture_AndAlgoerthem/stack-queue-animal-shelter/ConsoleApp1/README.md)
 
 - Multy Bracket : [Link](Data_Stucture_AndAlgoerthem/Multi-bracket/Multi-bracket/README.md)
+
+- Max Value in Stack : [Link](Data_Stucture_AndAlgoerthem/Max_stack/Max-stack/README.md)
   
