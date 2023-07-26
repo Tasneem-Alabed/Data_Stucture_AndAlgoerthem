@@ -2,6 +2,60 @@
 
 namespace Multi_bracket
 {
+    public class Node
+    {
+        public char number;
+        public Node next;
+        public Node()
+        {
+
+        }
+        public Node(char value)
+        {
+            number = value;
+
+        }
+    }
+
+    public class stack
+    {
+        Node tail;
+        public stack()
+        {
+            tail = null;
+        }
+
+        public bool IsEmpty()
+        {
+            if (tail == null)
+                return true;
+
+            else
+                return false;
+        }
+
+        public void Push(char value)
+        {
+            Node new_Node = new Node(value);
+            new_Node.next = tail;
+            tail = new_Node;
+
+        }
+
+        public char pop()
+        {
+            if (!IsEmpty())
+            {
+                char x = tail.number;
+                tail = tail.next;
+                return x;
+            }
+
+
+            else
+                throw new Exception("The stack is null");
+        }
+    }
     public class Program
     {
         static void Main(string[] args)
@@ -34,14 +88,16 @@ namespace Multi_bracket
         }
         public static bool ValidateBrackets(string s)
         {
+            stack b = new stack();
             int lastOpeningIndex = -1;
-            char[] bracketsTracker = new char[s.Length];
+           // char[] bracketsTracker = new char[s.Length];
 
             foreach (char c in s)
             {
                 if (IsOpeningBracket(c))
                 {
-                    bracketsTracker[++lastOpeningIndex] = c;
+                   b.Push(c);
+                    lastOpeningIndex++;
                 }
                 else if (IsClosingBracket(c))
                 {
@@ -51,10 +107,10 @@ namespace Multi_bracket
                         throw  new Exception($"error unmatched opening {x} remaining");
                         return false;
                     }
-                    else if( !AreMatchingBrackets(bracketsTracker[lastOpeningIndex], c))
+                    else if( !AreMatchingBrackets(b.pop(), c))
                     {
                         char y = c;
-                        throw new Exception($"error closing {bracketsTracker[++lastOpeningIndex]} Doesn’t match opening {y}");
+                        throw new Exception($"error closing {b.pop()} Doesn’t match opening {y}");
                         return false;
                     }
                     lastOpeningIndex--;
@@ -64,11 +120,11 @@ namespace Multi_bracket
         }
       
     }
-
-   
    
 
-    }
+
+
+}
 
 
 
