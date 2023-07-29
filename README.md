@@ -18,4 +18,6 @@
 - Multy Bracket : [Link](Data_Stucture_AndAlgoerthem/Multi-bracket/Multi-bracket/README.md)
 
 - Max Value in Stack : [Link](Data_Stucture_AndAlgoerthem/Max_stack/Max-stack/README.md)
+
+- Bimary Tree : [Link](Data_Stucture_AndAlgoerthem/Tree/Tree/README.md)
   
