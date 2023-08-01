@@ -20,4 +20,4 @@
 - Max Value in Stack : [Link](Data_Stucture_AndAlgoerthem/Max_stack/Max-stack/README.md)
 
 - Bimary Tree : [Link](Data_Stucture_AndAlgoerthem/Tree/Tree/README.md)
-  
+- Find Max in Binarry Tree : [Link](Data_Stucture_AndAlgoerthem/MaxInBinaryTree/MaxTree/README.md)
