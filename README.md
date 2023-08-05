@@ -21,3 +21,4 @@
 
 - Bimary Tree : [Link](Data_Stucture_AndAlgoerthem/Tree/Tree/README.md)
 - Find Max in Binarry Tree : [Link](Data_Stucture_AndAlgoerthem/MaxInBinaryTree/MaxTree/README.md)
+- First Birth in tree : [Link](Data_Stucture_AndAlgoerthem/BirthTree/BirthTree/README.md)
