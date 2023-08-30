@@ -6,20 +6,20 @@ namespace BirthTree
     {
         static void Main(string[] args)
         {
-          /*  BST tree = new BST();
-            tree.Insert(5);
-            tree.Insert(3);
-            tree.Insert(7);
-            tree.Insert(-9);
-            tree.Insert(15);
-            tree.Insert(10);
+            BST t = new BST();
+            t.Insert(5);
+            t.Insert(7);
+            t.Insert(3);
+            t.Insert(6);
+            t.Insert(4);
+            t.Insert(1);
+           t.Insert(2);
 
-
-            //tree.FirstBirth();
-            for (int i = 0; i < tree.FirstBirth().Count; i++)
+            t.FirstBirth();
+            for (int i = 0; i < t.FirstBirth().Count; i++)
             {
-                Console.Write(tree.FirstBirth()[i]+" ");
-            }*/
+                Console.Write(t.FirstBirth()[i] + " ");
+            }
 
         }
     }
@@ -91,11 +91,13 @@ namespace BirthTree
             }
             else
             {
-                
+               // Console.WriteLine("L");
                 int lheight = height(root.left);
+                //Console.WriteLine("L " + root.data +" " + lheight);
+               // Console.WriteLine("R");
                 int rheight = height(root.right);
+                //Console.WriteLine("R " + root.data + " " + rheight);
 
-                
                 if (lheight > rheight)
                 {
                     return (lheight + 1);
@@ -119,7 +121,9 @@ namespace BirthTree
             }
             else if (level > 1)
             {
+                if(root.left != null)
                 printGivenLevel(root.left, level - 1,  Numbers);
+                if (root.right != null)
                 printGivenLevel(root.right, level - 1, Numbers);
             }
         }

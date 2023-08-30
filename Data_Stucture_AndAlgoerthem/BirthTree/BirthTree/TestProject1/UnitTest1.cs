@@ -33,6 +33,19 @@ namespace TestProject1
             p.Add(6);
             Assert.Equal(p, t.FirstBirth());
         }
+        [Fact]
+        public void twoValue()
+        {
+            BST t = new BST();
+            t.Insert(5);
+            t.Insert(6);
+           
+            List<int> p = new List<int>();
+            p.Add(5);
+         
+            p.Add(6);
+            Assert.Equal(p, t.FirstBirth());
+        }
 
     }
 }
