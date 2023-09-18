@@ -23,4 +23,5 @@
 - Find Max in Binarry Tree : [Link](Data_Stucture_AndAlgoerthem/MaxInBinaryTree/MaxTree/README.md)
 - First Birth in tree : [Link](Data_Stucture_AndAlgoerthem/BirthTree/BirthTree/README.md)
 - Insertion Sort : [Link](Data_Stucture_AndAlgoerthem/InsertionSort/InsertionSort/README.md)
-- HashTable "[Link](Data_Stucture_AndAlgoerthem/HashTAble/HashTable/Readme.md)
+- HashTable [Link](Data_Stucture_AndAlgoerthem/HashTAble/HashTable/Readme.md)
+- Repeted word : [Link](Data_Stucture_AndAlgoerthem/RepetedInString/FindRepetWord/Readme.md)
