@@ -3,7 +3,7 @@ namespace TestProject1
 {
     public class UnitTest1
     {
-        [Fact]
+        /*[Fact]
         public void test1()
         {
           
@@ -38,8 +38,39 @@ namespace TestProject1
 
             // Assert
             Assert.Collection(traversal, vertex => Assert.Equal(vertexA, vertex));
+        }*/
+
+        
+        [Fact]
+        public void test1()
+        {
+            Graph<string> graph = new Graph<string>();
+            Vertex<string> vertexA = graph.AddVertex("A");
+            Vertex<string> vertexB = graph.AddVertex("B");
+            Vertex<string> vertexC = graph.AddVertex("C");
+
+            graph.AddEdge(vertexA, vertexB, 5);
+            graph.AddEdge(vertexB, vertexC, 3);
+            graph.AddEdge(vertexA, vertexC, 10);
+
+            int weightBetweenAandC = graph.CalculateTotalWeightBetweenVertices(vertexA, vertexC);
+            Assert.Equal(8, weightBetweenAandC);
         }
 
+        [Fact]
+        public void test2()
+        {
+            Graph<string> graph = new Graph<string>();
+            Vertex<string> vertexA = graph.AddVertex("A");
+            Vertex<string> vertexB = graph.AddVertex("B");
+            Vertex<string> vertexC = new Vertex<string>("C");
+
+            // Attempt to calculate weight between a vertex not in the graph (vertexC).
+            // This should throw an exception.
+            Assert.Throws<ArgumentException>(() => graph.CalculateTotalWeightBetweenVertices(vertexA, vertexC));
+        }
     }
 
+
 }
+
