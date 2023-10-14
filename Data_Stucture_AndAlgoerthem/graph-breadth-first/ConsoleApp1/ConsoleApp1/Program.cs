@@ -4,7 +4,7 @@
     {
         static void Main(string[] args)
         {
-           
+
         }
     }
 
@@ -46,20 +46,25 @@
 
         }
 
-        public void AddDirectEdge(Vertex<T> a, Vertex<T> b)
+
+        public void AddEdge(Vertex<T> vertex1, Vertex<T> vertex2, int weight = 0)
         {
-            List[a].Add(new Edge<T>
+            if (!List.ContainsKey(vertex1) || !List.ContainsKey(vertex2))
             {
-                Weight = 0,
-                Vertex = b,
+                throw new ArgumentException("Both vertices should already be in the graph");
+            }
+
+           List[vertex1].Add(new Edge<T>
+            {
+                Weight = weight,
+                Vertex = vertex2,
             });
 
-        }
-
-        public void AddUnDirectEdge(Vertex<T> a, Vertex<T> b)
-        {
-            AddDirectEdge(a, b);
-            AddDirectEdge(b, a);
+            List[vertex2].Add(new Edge<T>
+            {
+                Weight = weight,
+                Vertex = vertex1,
+            });
         }
 
         public List<Edge<T>> GetNeighbors(Vertex<T> vertex)
@@ -110,6 +115,42 @@
             }
             return visitedNodes;
         }
+        public int CalculateTotalWeightBetweenVertices(Vertex<T> startVertex, Vertex<T> endVertex)
+        {
+            if (!List.ContainsKey(startVertex) || !List.ContainsKey(endVertex))
+            {
+                throw new ArgumentException("Both vertices should already be in the graph");
+            }
+
+
+            Dictionary<Vertex<T>, int> distance = new Dictionary<Vertex<T>, int>();
+            foreach (var vertex in List.Keys)
+            {
+                distance[vertex] = int.MaxValue;
+            }
+            distance[startVertex] = 0;
+
+            Queue<Vertex<T>> queue = new Queue<Vertex<T>>();
+            queue.Enqueue(startVertex);
+
+            while (queue.Count > 0)
+            {
+                var current = queue.Dequeue();
+
+                foreach (var edge in List[current])
+                {
+                    if (distance[edge.Vertex] > distance[current] + edge.Weight)
+                    {
+                        distance[edge.Vertex] = distance[current] + edge.Weight;
+                        queue.Enqueue(edge.Vertex);
+                    }
+                }
+            }
+
+        
+            return distance[endVertex];
+        }
+
 
     }
 }
