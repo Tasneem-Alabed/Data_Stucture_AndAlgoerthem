@@ -4,7 +4,7 @@
     {
         static void Main(string[] args)
         {
-
+           
         }
     }
 
@@ -54,7 +54,7 @@
                 throw new ArgumentException("Both vertices should already be in the graph");
             }
 
-           List[vertex1].Add(new Edge<T>
+            List[vertex1].Add(new Edge<T>
             {
                 Weight = weight,
                 Vertex = vertex2,
@@ -147,10 +147,35 @@
                 }
             }
 
-        
+
             return distance[endVertex];
         }
 
+        public List<Vertex<T>> DepthFirst(Vertex<T> startVertex)
+        {
+            if (!List.ContainsKey(startVertex))
+                throw new InvalidOperationException(" ");
 
+            List<Vertex<T>> Nodes = new List<Vertex<T>>();
+            HashSet<Vertex<T>> visited = new HashSet<Vertex<T>>();
+
+            DepthFirstRecursive(startVertex, visited, Nodes);
+
+            return Nodes;
+
+        }
+        private void DepthFirstRecursive(Vertex<T> vert, HashSet<Vertex<T>> visited, List<Vertex<T>> Nodes)
+        {
+            visited.Add(vert);
+            Nodes.Add(vert);
+
+            foreach (var x in List[vert])
+            {
+                if (!visited.Contains(x.Vertex))
+                {
+                    DepthFirstRecursive(x.Vertex, visited, Nodes);
+                }
+            }
+        }
     }
-}
+    }
