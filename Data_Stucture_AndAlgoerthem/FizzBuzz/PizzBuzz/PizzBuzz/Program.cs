@@ -11,7 +11,7 @@ namespace PizzBuzz
     {
         static void Main(string[] args)
         {
-            BST tree = new BST();
+           /* BST tree = new BST();
             tree.Insert(5);
             tree.Insert(3);
             tree.Insert(7);
@@ -23,21 +23,27 @@ namespace PizzBuzz
             tree.TraverseInOrder(tree.root);
             Console.WriteLine("--------------------------");
 
-            var x = tree.PutTreeInQueu(tree);
-            foreach (Node n in x)
-            {
-                Console.WriteLine(n.data);
-            }
 
+            BST t2 = tree.putInNewStringTree(tree);
+            t2.TraverseInOrders(t2.root);
+
+            */
 
         }
+    }
         public class Node
         {
             public int data;
+            public string name;
             public Node left, right;
             public Node(int item)
             {
                 data = item;
+                left = right = null;
+            }
+            public Node(string name)
+            {
+                name = name;
                 left = right = null;
             }
         }
@@ -78,16 +84,28 @@ namespace PizzBuzz
                     TraverseInOrder(parent.right);
                 }
             }
+            public void TraverseInOrders(Node parent)
+            {
+                if (parent != null)
+                {
+                    TraverseInOrders(parent.left);
+                    Console.Write(parent.name + " ");
+                    TraverseInOrders(parent.right);
+                }
+            }
 
             public Queue<Node> PutTreeInQueu(BST tree)
             {
+            
                 Queue<Node> queue = new Queue<Node>();
                 Queue<Node> queue1 = new Queue<Node>();
+
                 if (tree.root != null)
                 {
                     queue.Enqueue(tree.root);
                 }
                 Node poiter = queue.Peek();
+                
                 while (poiter.right != null || poiter.left != null)
                 {
                     if (poiter.left != null)
@@ -113,11 +131,50 @@ namespace PizzBuzz
 
             public BST putInNewStringTree(BST tree)
             {
-                BST New_Tree = new BST();
-
+            if (tree == null || tree.root == null) { return null; }
+            BST New_Tree = new BST();
+                Queue<Node> x = PutTreeInQueu(tree);
+                if (x != null)
+                {
+                    Node pointer = x.Dequeue();
+                    string result = check(pointer);
+                    New_Tree.root= pointer;
+                    New_Tree.root.name = result;
+                    while ( pointer != null)
+                    {
+                        if(pointer.left != null)
+                        {
+                            root.left.name = check(pointer.left);
+                        }
+                        if (pointer.right != null)
+                        {
+                            root.right.name = check(pointer.right);
+                        }
+                        if(pointer.left == null && pointer.right==null) { return New_Tree; }
+                       pointer = x.Dequeue();
+                        root= pointer;
+                    }
+                }
                 return New_Tree;
+            }
+
+            public string check(Node n)
+            {
+                if(n.data %3==0 & n.data % 5 == 0)
+                {
+                    return "FizzBuzz";
+                }
+                else if (n.data %3==0)
+                {
+                    return "Buzz";
+                }
+                else if(n.data % 5 == 0)
+                {
+                    return "Fizz";
+                }
+                return n.data.ToString();
             }
         }
     }
-}
+
 
