@@ -69,6 +69,26 @@ namespace TestProject1
             // This should throw an exception.
             Assert.Throws<ArgumentException>(() => graph.CalculateTotalWeightBetweenVertices(vertexA, vertexC));
         }
+        [Fact]
+        public void test3()
+        {
+            
+            var graph = new Graph<string>();
+            var vertexA = graph.AddVertex("A");
+            var vertexB = graph.AddVertex("B");
+            var vertexC = graph.AddVertex("C");
+            var vertexD = graph.AddVertex("D");
+            graph.AddEdge(vertexA, vertexB);
+            graph.AddEdge(vertexA, vertexC);
+            graph.AddEdge(vertexB, vertexD);
+
+            
+            var result = graph.DepthFirst(vertexA);
+
+            
+            Assert.Equal(new[] { vertexA, vertexB, vertexD, vertexC }, result);
+        }
+       
     }
 
 
